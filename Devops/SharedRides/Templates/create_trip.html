@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <h1 class="mt-5">Create a New Trip</h1>
+  <form method="post" action="{% url 'create_trip' %}">
+    {% csrf_token %}
+    <div class="mb-3">
+      {{ form.departure_location.label_tag }}
+      {{ form.departure_location }}
+    </div>
+    <div class="mb-3">
+      {{ form.destination.label_tag }}
+      {{ form.destination }}
+    </div>
+    <div class="mb-3">
+      {{ form.departure_time.label_tag }}
+      {{ form.departure_time }}
+    </div>
+    <div class="mb-3">
+      {{ form.available_seats.label_tag }}
+      {{ form.available_seats }}
+    </div>
+    <button type="submit" class="btn btn-primary">Create Trip</button>
+  </form>
+</div>
+{% endblock %}

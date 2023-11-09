@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>Trip Details</h1>
+            <ul>
+                <li><strong>Departure Location:</strong> {{ trip.departure_location }}</li>
+                <li><strong>Destination:</strong> {{ trip.destination }}</li>
+                <li><strong>Departure Time:</strong> {{ trip.departure_time }}</li>
+                <li><strong>Available Seats:</strong> {{ trip.available_seats }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2" style="position: sticky; top: 0;">
+            <div class="container">
+                
+                <div class="input-group mb-3 mt-3">
+                    <input type="text" class="form-control rounded" name="query" placeholder="Search rides..." aria-label="Search" aria-describedby="search-addon" />
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-outline-primary">Search</button>
+                    </div>
+                </div>
+                
+                <div class="overflow-auto" style="height: calc(100vh - 150px); overflow: auto;">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{% url 'trip_list' %}">All Trips</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'create_trip' %}">Create Trip</a>
+                        </li>
+                
+                    
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-10">
+            <h1 style="text-align: center">Welcome to the Ride Sharing Dashboard</h1>
+
+            
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title" style="text-align: center">User Statistics</h5>
+                    <p class="card-text">Upcoming Trips: {{ num_upcoming_trips }}</p>
+                    <p class="card-text">Total Trips Taken: {{ num_total_trips }}</p>
+                </div>
+            </div>
+
+            
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-align: center">Upcoming Trips</h5>
+                            <p class="card-text">Total Upcoming Trips: {{ num_upcoming_trips }}</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class "card-title" style="text-align: center">Trips Distribution</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-align: center">User Activity Log</h5>
+                            <ul>
+                                <li>User {{ user.username }} scheduled a ride at 10:00 AM.</li>
+                                <li>User {{ user.username }} joined a ride at 11:30 AM.</li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-align: center">Trips by Destination</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

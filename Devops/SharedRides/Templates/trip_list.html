@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <h1 class="mt-5">Trip List</h1>
+  <form action="{% url 'trip_list' %}" method="GET">
+    <input type="text" class="form-control rounded" name="q" placeholder="Search trips..." aria-label="Search" aria-describedby="search-addon" />
+    <button type="submit" class="btn btn-outline-primary">Search</button>
+  </form>
+  <ul class="list-group">
+    {% for trip in trips %}
+      <li class="list-group-item">
+        <a class="text-decoration-none" href="{% url 'trip_details' trip_id=trip.id %}">{{ trip.departure_location }} - {{ trip.destination }} - {{ trip.departure_time }} - Available Seats: {{ trip.available_seats }}</a>
+      </li>
+    {% empty %}
+      <li class="list-group-item">No trips found.</li>
+    {% endfor %}
+  </ul>
+  <a class="btn btn-primary mt-3" href="{% url 'create_trip' %}">Create Trip</a>
+</div>
+{% endblock %}
