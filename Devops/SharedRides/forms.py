@@ -8,12 +8,12 @@ from django import forms
 class TripForm(forms.ModelForm):
     class Meta:
         model = Trip
-        fields = ['departure_location', 'destination', 'departure_time', 'available_seats']
+        fields = ['start_place', 'end_place', 'time', 'travel_distance']
         widgets = {
-            'departure_location': forms.TextInput(attrs={'class': 'form-control'}),
-            'destination': forms.TextInput(attrs={'class': 'form-control'}),
-            'departure_time': forms.DateTimeInput(attrs={'class': 'form-control'}),
-            'available_seats': forms.NumberInput(attrs={'class': 'form-control'}),
+            'start_place': forms.TextInput(attrs={'class': 'form-control'}),
+            'end_place': forms.TextInput(attrs={'class': 'form-control'}),
+            'time': forms.DateTimeInput(attrs={'class': 'form-control'}),
+            'travel_distance': forms.NumberInput(attrs={'class': 'form-control'}),
         }
 
 
